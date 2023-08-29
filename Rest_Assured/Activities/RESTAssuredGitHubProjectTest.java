@@ -1,4 +1,4 @@
-package liveProject;
+package RESTAssuredGitHubProject;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
@@ -16,7 +16,7 @@ import io.restassured.specification.ResponseSpecification;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GitHubProjectTest {
+public class RESTAssuredGitHubProjectTest {
     //Declare request specification
     RequestSpecification requestSpec;
     int keyId;
@@ -41,14 +41,14 @@ public class GitHubProjectTest {
                 // Build request specification
                 .build();
 
-        responseSpec = new ResponseSpecBuilder()
+       responseSpec = new ResponseSpecBuilder()
                 // Check status code in response
                 //.expectStatusCode(200)
                 // Check response content type
                 .expectContentType("application/json")
-                .expectBody("key", equalTo(sshkey))
-                .expectBody("title", equalTo("TestAPIKey"))
-                .expectResponseTime(lessThan(4000L))
+               .expectBody("key", equalTo(sshkey))
+               .expectBody("title", equalTo("TestAPIKey"))
+               .expectResponseTime(lessThan(4000L))
                 // Check if response contains name property
                 //.expectBody("status", equalTo("alive"))
                 // Build response specification
@@ -86,7 +86,6 @@ public class GitHubProjectTest {
         response.then().spec(responseSpec).statusCode(200);
 
         System.out.println(response.asPrettyString());
-
     }
 
     @Test(priority = 3)
@@ -106,6 +105,3 @@ public class GitHubProjectTest {
 
 
 }
-
-
-
