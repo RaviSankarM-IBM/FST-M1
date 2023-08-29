@@ -85,6 +85,8 @@ public class GitHubProjectTest {
 
         response.then().spec(responseSpec).statusCode(200);
 
+        System.out.println(response.asPrettyString());
+
     }
 
     @Test(priority = 3)
@@ -97,6 +99,8 @@ public class GitHubProjectTest {
 
         // Assertions
         response.then().body("code", equalTo(200));
+
+        System.out.println(response.asPrettyString());
 
     }
 
